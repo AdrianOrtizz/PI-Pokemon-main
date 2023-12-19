@@ -5,7 +5,8 @@ const endpoint = 'https://pokeapi.co/api/v2/pokemon/';
 const searchPokemonController = async (name) => {
     try {
         const { data } = await axios(`${endpoint}${name}`);
-    
+        
+        // traemos toda la información del pokemon
         const poke = {
             id: data.id,
             name: data.name,
@@ -13,14 +14,15 @@ const searchPokemonController = async (name) => {
             hp: data.stats[0].base_stat,
             attack: data.stats[1].base_stat,
             defense: data.stats[2].base_stat,
-            "special-attack": data.stats[3].base_stat,
-            "special-defense": data.stats[4].base_stat,
+            specialAttack: data.stats[3].base_stat,
+            specialDefense: data.stats[4].base_stat,
             speed: data.stats[5].base_stat,
             height: data.height,
             weight: data.weight,
             types: [data.types[0].type.name],
         }
 
+        // si el pokemon tiene más de un tipo, se agrega al array
         data.types[1] && poke.types.push(data.types[1].type.name);
     
         return poke;

@@ -19,11 +19,11 @@ const searchPokemonController = async (name) => {
             speed: data.stats[5].base_stat,
             height: data.height,
             weight: data.weight,
-            types: [data.types[0].type.name],
+            types: [data.types[0].type],
         }
 
         // si el pokemon tiene más de un tipo, se agrega al array
-        data.types[1] && poke.types.push(data.types[1].type.name);
+        data.types[1] && poke.types.push(data.types[1].type);
     
         return poke;
     } catch (error) {

@@ -30,10 +30,10 @@ const getPokemonsController = async () => {
                 speed: pok.stats[5].base_stat,
                 height: pok.height,
                 weight: pok.weight,
-                types: [pok.types[0].type.name],
+                types: [pok.types[0].type],
             }
 
-            pok.types[1] && poke.types.push(pok.types[1].type.name)
+            pok.types[1] && poke.types.push(pok.types[1].type)
 
             return poke;
         })

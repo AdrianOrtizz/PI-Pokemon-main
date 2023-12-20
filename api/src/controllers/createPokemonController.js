@@ -1,4 +1,4 @@
-const { Pokemon } = require('../db');
+const { Pokemon, Type } = require('../db');
 
 const createPokemonController = async (poke) => {
     try {
@@ -12,6 +12,9 @@ const createPokemonController = async (poke) => {
         const id = lengthBD.length + 1018;
 
         const newPoke = await Pokemon.create({ id, ...poke });
+
+        newPoke.addTypes(poke.types);
+
         return newPoke;
     } catch (error) {
         throw Error('Error when creating the pokemon')

@@ -2,9 +2,11 @@ import styles from './LandingPage.module.scss';
 
 const LandingPage = () => {
     return (
-        <div>
-            soy el landing
-        </div>
+        <main>
+            <span>
+                Go 
+            </span>
+        </main>
     )
 }
 

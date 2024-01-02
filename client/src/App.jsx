@@ -4,6 +4,7 @@ import LandingPage from './views/landingPage/landingPage';
 import HomePage from './views/homePage/homePage';
 import DetailPage from './views/detailPage/detailPage';
 import ErrorPage from './views/ErrorPage/ErrorPage';
+import CreatePage from './views/CreatePage/CreatePage';
 
 
 function App() {  
@@ -12,6 +13,7 @@ function App() {
       <Route path='/' element={<LandingPage/>} />
       <Route path='/home' element={<HomePage/>} />
       <Route path='/pokemons/:id' element={<DetailPage/>} />
+      <Route path='/create' element={<CreatePage/>}/>
       <Route path='*' element={<ErrorPage/>} />
     </Routes>
   )

@@ -1,9 +1,26 @@
+import { GET_ALL_POKEMONS, SEARCH_POKEMON } from "../actions/actions-types";
 
+const initialState = {
+    pokemonDetail: '',
+    pokemons: []
+}
 
-const initialState = {}
+const rootReducer = (state = initialState, { type, payload }) => {
+    switch(type){
+        case GET_ALL_POKEMONS:
+            return {
+                ...state,
+                pokemons: payload
+            }
 
-const rootReducer = (state = initialState, action) => {
-
+        case SEARCH_POKEMON: 
+            return {
+                ...state,
+                pokemonDetail: payload
+            }
+        default:
+            return {...state}
+    }
 }
 
 export default rootReducer;

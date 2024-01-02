@@ -1,0 +1,80 @@
+main{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .logoImg{
+        width: 500px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    
+        animation-name: logoPresentation;
+        animation-duration: 2s;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes logoPresentation {
+        0%{
+            top: -500px;
+        }
+    
+        100%{
+            top: 0px;
+        }
+    }
+
+    .charmeleonImg{
+        position: absolute;
+        width: 500px;
+        top: 20px;
+
+        animation-name: charmeleonPresentation;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+    }
+
+    @keyframes charmeleonPresentation {
+        0%{
+            right: -500px;
+            transform: rotate(45deg);
+        }
+
+        100%{
+            right: 20px;
+            transform: rotate(-10deg);
+        }
+    }
+    
+    .pikachuImg{
+        position: absolute;
+        width: 400px;
+        bottom: 30px;
+        
+        animation-name: pikachuPresentation;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+    }
+
+    @keyframes pikachuPresentation {
+        0%{
+            left: -500px;
+        }
+
+        100%{
+            left: 30px;
+            transform: rotate(-30deg);
+        }
+    }
+    
+    .homeBtn{
+        width: 6em;
+        height: 2em;
+    
+        background-color: lightblue;
+    }
+}

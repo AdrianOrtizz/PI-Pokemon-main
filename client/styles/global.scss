@@ -3,7 +3,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f00;
+  background-color: #a00;
 }
 
 body::before{
@@ -15,9 +15,22 @@ body::before{
   height: 100vh;
   z-index: -1;
 
+
   background-image: url('../src/assets/poke.jpg');
   background-size:cover;
-  filter: blur(5px);
+  animation-name: blurImage;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes blurImage{
+  0%{
+    filter: blur(0px);
+  }
+
+  100%{
+    filter: blur(10px);
+  }
 }
     
 code {

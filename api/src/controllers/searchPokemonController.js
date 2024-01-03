@@ -4,6 +4,13 @@ const endpoint = 'https://pokeapi.co/api/v2/pokemon/';
 
 const searchPokemonController = async (name) => {
     try {
+
+        if(name.includes(' ')){
+            name = name.replace(' ', '-');
+        }
+
+        name = name.toLowerCase();
+
         const { data } = await axios(`${endpoint}${name}`);
         
         // traemos toda la información del pokemon

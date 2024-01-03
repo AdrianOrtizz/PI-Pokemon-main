@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_POKEMONS, SEARCH_POKEMON } from './actions-types';
+import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE } from './actions-types';
 
 const endpoint = 'http://localhost:3001/pokemons';
 
@@ -26,11 +26,18 @@ export const searchPokemon = (name) => {
             return dispatch(
                 {
                     type: SEARCH_POKEMON,
-                    payload: data.id
+                    payload: data
                 }
             )
         } catch (error) {
             throw Error(error)
         }
+    }
+}
+
+export const resetState = () => {
+    return {
+        type: RESET_STATE,
+        payload: {}
     }
 }

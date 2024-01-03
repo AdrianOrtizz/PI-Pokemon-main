@@ -1,6 +1,3 @@
-import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-
 import PokemonCard from "../PokemonCard/PokemonCard";
 
 const PokemonsCards = ({allPokemons}) => {

@@ -1,36 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { searchPokemon } from "../../redux/actions/actions";
+import { searchPokemon, resetState } from "../../redux/actions/actions";
 
 const SearchBar = () => {
 
-    const [ pokemon, setPokemon ] = useState('');
-
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const [ pokemonSerchead, setPokemonSerchead ] = useState('');
     const pokemonDetail = useSelector(state => state.pokemonDetail);
-    
-    const handleChange = (event) => {
-        setPokemon(event.target.value);
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     handleRedirect(pokemonDetail);
+    // }, [pokemonDetail])
+
+    const handleDispatch = async () => {
+        dispatch(searchPokemon(pokemonSerchead))   
     }
-    
-    const handleSearch = (pokemon) => {
+
+    const handleChange = (event) => {
+        setPokemonSerchead(event.target.value);
+    }
+
+    const handleSearch = async () => {
         try {
-            dispatch(searchPokemon(pokemon))
-            setPokemon('');
-            
-            navigate(`/pokemons/${pokemonDetail}`)
-            
+            if(/^[a-zA-Z\s]+$/.test(pokemonSerchead)){
+                handleDispatch()
+                navigate(`/pokemons/${pokemonDetail.id}`)
+                setPokemonSerchead('');                
+            }else{
+                alert('Only letters');
+                
+            }
         } catch (error) {
-            throw Error(error.message)
+            alert('pokemon not found');
         }
     }
 
     const handleKey = (event) => {
         if(event.key === 'Enter'){
-            handleSearch(pokemon)
+            handleSearch(pokemonSerchead)
         }
     }
 
@@ -39,12 +50,12 @@ const SearchBar = () => {
             <input 
                 type="text"
                 placeholder="Search pokemons!"
-                value={pokemon}
+                value={pokemonSerchead}
                 onChange={handleChange} 
-                onKeyDown={handleKey}/>
-            <button
-            onClick={() => handleSearch(pokemon)}
-            >
+                onKeyDown={handleKey}
+            />
+
+            <button onClick={handleSearch}>
                 🔍
             </button>
         </div>

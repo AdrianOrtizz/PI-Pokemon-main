@@ -1,6 +1,5 @@
 import styles from './Nav.module.scss';
 
-import SearchBar from "../SearchBar/SearchBar";
 
 import { Link } from "react-router-dom";
 
@@ -10,12 +9,10 @@ const Nav = () => {
     return (
         <nav>
             <Link to='/home'> Home </Link>
-            <Link to='/pokemon'> Create Pokemon </Link>
+            <Link to='/create'> Create Pokemon </Link>
             <Link to='/about'> About Me </Link>
-
-            <img src={logoPokemon} className={styles.img} title='logo de pokemon' alt='logo de pokemon' />
-
-            <SearchBar/>
+            <Link to='/home'> <img src={logoPokemon} className={styles.img} title='logo de pokemon' alt='logo de pokemon' /> </Link>
+            
         </nav>
     )
 }

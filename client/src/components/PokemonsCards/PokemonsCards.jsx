@@ -1,9 +1,37 @@
 import PokemonCard from "../PokemonCard/PokemonCard";
 
-const PokemonsCards = ({allPokemons}) => {
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { getAllPokemons } from '../../redux/actions/actions';
+
+import styles from './PokemonsCards.module.scss';
+
+const PokemonsCards = () => {
+
+    const pokemons = useSelector((state) => state.pokemons);
+    const [ allPokemons, setAllPokemons ] = useState([]);
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        allPokemons.length === 0 && dispatch(getAllPokemons());
+    }, [])
+    
+    useEffect(() => {
+        setAllPokemons(pokemons);
+    }, [pokemons])
 
     return (
-        <div>
+        <div className={styles.cardsContainer}>
+
+            {/* <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+            </select> */}
+
+            { allPokemons.length === 0 && <p> Loading... </p> }
+
             {
                 allPokemons.map( poke => {
                     return <PokemonCard

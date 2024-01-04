@@ -1,9 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+import styles from './PokemonCard.module.scss';
 
 const PokemonCard = ({ id, name, image, types }) => {
     return (
-        <Link to={`/pokemons/${id}`}>
-            <div>
+        <Link to={`/pokemons/${id}`} className={styles.link}>
+            <div className={styles.cardContainer}>
                 <img src={image} title={name} alt={name} />
                 <h2>{name}</h2>
                 <h2>#{id}</h2>

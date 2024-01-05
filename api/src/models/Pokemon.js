@@ -17,6 +17,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageShiny: {
+      type: DataTypes.STRING,
+    },
     hp: {
       type: DataTypes.INTEGER,
       allowNull: false,

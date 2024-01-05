@@ -17,9 +17,10 @@ function App() {
   return (
     <div>
       { location !== '/' && <Nav/> }
+      
       <Routes>
         <Route path='/' element={<LandingPage/>} />
-        <Route path='/home' element={<HomePage/>} />
+        <Route path='/home/:page' element={<HomePage/>} />
         <Route path='/pokemons/:id' element={<DetailPage/>} />
         <Route path='/create' element={<CreatePage/>}/>
         <Route path='*' element={<ErrorPage/>} />

@@ -8,10 +8,10 @@ import logoPokemon from '../../assets/logoPokemon.png'
 const Nav = () => {
     return (
         <nav>
-            <Link to='/home'> Home </Link>
+            <Link to='/home/1'> Home </Link>
             <Link to='/create'> Create Pokemon </Link>
             <Link to='/about'> About Me </Link>
-            <Link to='/home'> <img src={logoPokemon} className={styles.img} title='logo de pokemon' alt='logo de pokemon' /> </Link>
+            <Link to='/home/1'> <img src={logoPokemon} className={styles.img} title='logo de pokemon' alt='logo de pokemon' /> </Link>
             
         </nav>
     )

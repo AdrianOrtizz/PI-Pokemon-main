@@ -12,7 +12,7 @@ const LandingPage = () => {
             <img src={charmeleon} alt="pokemon charmeleon" title='charmelon' className={styles.charmeleonImg} />
             <img src={pikachu} alt="pokemon pikachu" title='pikachu' className={styles.pikachuImg} />
 
-            <Link to='/home'>
+            <Link to='/home/1'>
                 <span className={styles.homeBtn}>
                     Go home
                 </span>

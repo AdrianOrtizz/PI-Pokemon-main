@@ -2,6 +2,7 @@ import PokemonCard from "../PokemonCard/PokemonCard";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useParams, Link } from "react-router-dom";
 
 import { getAllPokemons } from '../../redux/actions/actions';
 
@@ -10,48 +11,71 @@ import styles from './PokemonsCards.module.scss';
 const PokemonsCards = () => {
 
     const pokemons = useSelector((state) => state.pokemons);
-    const [ allPokemons, setAllPokemons ] = useState([]);
+    const [ actualPagePokemons, setActualPagePokemons ] = useState([]);
 
     const dispatch = useDispatch();
+    const page = Number(useParams().page);
 
     useEffect(() => {
-        allPokemons.length === 0 && dispatch(getAllPokemons());
+        pokemons.length === 0 && dispatch(getAllPokemons());  
     }, [])
-    
+
     useEffect(() => {
-        setAllPokemons(pokemons);
-    }, [pokemons])
+        const aux = page * 12;
+
+        const min = aux - 12;
+        const max = aux;
+
+        const pokes = pokemons.slice(min, max);
+
+        setActualPagePokemons(pokes);
+    }, [page, pokemons])
 
     return (
-        <div className={styles.cardsContainer}>
+        <section>
+            <div className={styles.filtersContainer}>
+                <select name="filter by origin">
+                    <option value="AP"> All Pokemons </option>
+                    <option value="API"> Originals </option>
+                    <option value="DB"> Created by the community </option>
+                </select>
 
-            {/* <select name="" id="">
-                <option value=""></option>
-                <option value=""></option>
-            </select> */}
+                <select name="filter by stats">
+                    <option value="PN"> Pokedex Number upward </option>
+                    <option value="PN"> Pokedex Number falling </option>
+                    <option value="HP"> Hp </option>
+                    <option value="AT"> Attack </option>
+                    <option value="DF"> Defense </option>
+                    <option value="SD"> Special Defense </option>
+                    <option value="SA"> Special Attack </option>
+                    <option value="SP"> Speed </option>
+                </select>
+            </div>
 
-            { allPokemons.length === 0 && <p> Loading... </p> }
+            <span>
+                {page > 1 && <Link to={`/home/${page - 1}`}> {'<'} </Link>} 
+                { page } 
+                {page < 4 && <Link to={`/home/${page + 1}`}> {' > '} </Link>}
+            </span>
 
-            {
-                allPokemons.map( poke => {
-                    return <PokemonCard
-                        key={poke.id}
-                        id={poke.id}
-                        name={poke.name}
-                        image={poke.image}
-                        types={poke.types}
-                        // hp={poke.hp}
-                        // attack={poke.attack}
-                        // defense={poke.defense}
-                        // specialAttack={poke.specialAttack}
-                        // specialDefense={poke.specialDefense}
-                        // speed={poke.speed}
-                        // height={poke.height}
-                        // weight={poke.weight}
-                    />
-                })
-            }
-        </div>
+            <div className={styles.cardsContainer}>
+                { actualPagePokemons.length === 0 && <p> Loading... </p> }
+
+                {
+                    actualPagePokemons.map( poke => {
+                        return <PokemonCard
+                            key={poke.id}
+                            id={poke.id}
+                            name={poke.name}
+                            image={poke.image}
+                            types={poke.types}
+                        />
+                    })
+                }
+            </div>
+
+
+        </section>
     )
 }
 

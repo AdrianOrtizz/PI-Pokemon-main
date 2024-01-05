@@ -22,6 +22,7 @@ const getPokemonsController = async () => {
                 id: pok.id,
                 name: pok.name,
                 image: pok.sprites.front_default,
+                imageShiny: pok.sprites.front_shiny,
                 hp: pok.stats[0].base_stat,
                 attack: pok.stats[1].base_stat,
                 defense: pok.stats[2].base_stat,

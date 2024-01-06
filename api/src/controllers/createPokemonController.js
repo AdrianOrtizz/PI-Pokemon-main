@@ -11,7 +11,7 @@ const createPokemonController = async (poke) => {
         const lengthBD = await Pokemon.findAll();
         const id = lengthBD.length + 1018;
 
-        const newPoke = await Pokemon.create({ id, ...poke });
+        const newPoke = await Pokemon.create({ id, origin: 'DB', ...poke });
 
         newPoke.addTypes(poke.types);
 

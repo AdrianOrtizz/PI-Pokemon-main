@@ -32,6 +32,7 @@ const getPokemonsController = async () => {
                 height: pok.height,
                 weight: pok.weight,
                 types: [pok.types[0].type],
+                origin: 'API',
             }
 
             pok.types[1] && poke.types.push(pok.types[1].type)

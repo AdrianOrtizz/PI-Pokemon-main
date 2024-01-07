@@ -6,10 +6,10 @@ export const handleChange = (event, { setPokemonSerchead } ) => {
     setPokemonSerchead(event.target.value);
 }
 
-export const handleSearch = async ( { pokemonSerchead, setPokemonSerchead, dispatch } ) => {
+export const handleSearch = ( { pokemonSerchead, setPokemonSerchead, dispatch } ) => {
     try {
         if(regex.test(pokemonSerchead)){
-            await dispatch(searchPokemon(pokemonSerchead));
+            dispatch(searchPokemon(pokemonSerchead));
             setPokemonSerchead('');
         }else{
             alert('Only letters');
@@ -26,7 +26,10 @@ export const handleKey = (event, { pokemonSerchead, setPokemonSerchead, dispatch
     }
 }
 
-export const handleRedirect = ({ dispatch, navigate, searchPokemon }) => {
-    navigate(`/pokemons/${searchPokemon.id}`);
-    dispatch(resetState());
+export const handleRedirect = ({ navigate, pokemonDetail }) => {
+    if(Object.keys(pokemonDetail).length !== 0){
+        navigate(`/pokemons/${pokemonDetail.id}`);
+    }else{
+        navigate(`/home/1`)
+    }
 }

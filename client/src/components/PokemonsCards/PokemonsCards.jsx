@@ -69,6 +69,7 @@ const PokemonsCards = () => {
                             id={poke.id}
                             name={poke.name}
                             image={poke.image}
+                            imageShiny={poke.imageShiny}
                             types={poke.types}
                         />
                     })

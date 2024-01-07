@@ -30,7 +30,7 @@ export const searchPokemon = (name) => {
                 }
             )
         } catch (error) {
-            throw Error(error)
+            alert('The requested pokemon does not exist');
         }
     }
 }

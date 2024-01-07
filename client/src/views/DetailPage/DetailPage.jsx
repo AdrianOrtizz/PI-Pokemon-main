@@ -1,33 +1,73 @@
-import { getPokemonDetail, resetState } from "../../redux/actions/actions";
+import { resetState } from "../../redux/actions/actions";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import shinyImg from '../../assets/shiny.png'
+
+import { searchPokemon } from "../../redux/actions/actions";
 import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
 
-    const [pokemon, setPokemon] = useState({});
-    const searchPokemon = useSelector(state => state.searchPokemon);
-    const id = Number(useParams().id);
+    const pokemonDetail = useSelector(state => state.pokemonDetail);
 
-    const dispatch = useDispatch()
+    const [ pokemon, setPokemon ] = useState({});
+    const [ shiny, setShiny ] = useState(false);
+
+    const id = Number(useParams().id)
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        if(Object.keys(pokemon).length === 0){
-            dispatch(getPokemonDetail(id));
-        }
-        
-        return () => {
-            setPokemon({});
-        }
-    }, []);
-    
+        dispatch(searchPokemon(id));
+        return () => dispatch(resetState())
+    }, [])
+
     useEffect(() => {
-        setPokemon(searchPokemon);
-    }, [searchPokemon])
+        setPokemon(pokemonDetail);
+    }, [pokemonDetail])
+
+    const handleShiny = () => {
+        setShiny(!shiny);
+    }
 
     return (
-        <h1>detail de { pokemon.name }</h1>
+        <div>
+            <img src={shinyImg} alt="shiny" onClick={handleShiny} />
+            {
+                shiny ? (
+                    <img src={pokemon.imageShiny} alt={pokemon.name} title={pokemon.name} />
+                ) : (
+                    <img src={pokemon.image} alt={pokemon.name} title={pokemon.name} />
+                )
+            }
+            <h2>{ pokemon.name }</h2>
+
+            <h2>Pokedex Number: #{pokemon.id}</h2>
+
+            <h2> Characteristics: </h2>
+            <ul>
+                <li>Height: {pokemon.height / 10}m</li>
+                <li>Weight: {pokemon.weight / 10}kg</li>
+            </ul>
+
+            <h2>Stats:</h2>
+            <ul>
+                <li>HP: {pokemon.hp}</li>
+                <li>Attack: {pokemon.attack}</li>
+                <li>Defense: {pokemon.defense}</li>
+                <li>Special Attack: {pokemon.specialAttack}</li>
+                <li>Special Defense: {pokemon.specialDefense}</li>
+                <li>Speed: {pokemon.speed}</li>
+            </ul>
+            <h2>
+                Types: 
+                <b> {pokemon.types && pokemon.types[0].name } </b>
+                <b>{pokemon.types && pokemon.types[1] && pokemon.types[1].name}</b>
+            </h2>
+
+        </div>
     )
 }
 

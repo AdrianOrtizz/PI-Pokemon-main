@@ -1,7 +1,7 @@
 import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL } from "../actions/actions-types";
 
 const initialState = {
-    searchPokemon: {},
+    pokemonDetail: {},
     pokemons: [],
     pokemonsAux: [],
 }
@@ -18,13 +18,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
         case SEARCH_POKEMON:
             return {
                 ...state,
-                searchPokemon: payload
+                pokemonDetail: payload
             }
             
         case RESET_STATE:
             return {
                 ...state,
-                searchPokemon: payload
+                pokemonDetail: payload
             }
 
         case ORDER_POKEMONS:
@@ -56,7 +56,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
         case GET_POKEMON_DETAIL:
             return {
                 ...state,
-                searchPokemon: payload
+                pokemonDetail: payload
             }
 
         default:

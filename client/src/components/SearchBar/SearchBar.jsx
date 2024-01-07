@@ -7,7 +7,7 @@ import { handleChange, handleSearch, handleKey, handleRedirect } from "./searchB
 const SearchBar = () => {
 
     const [ pokemonSerchead, setPokemonSerchead ] = useState('');
-    const searchPokemon = useSelector(state => state.searchPokemon);
+    const pokemonDetail = useSelector(state => state.pokemonDetail);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -15,18 +15,14 @@ const SearchBar = () => {
     const handlersTools = {
         pokemonSerchead,
         setPokemonSerchead,
-        searchPokemon,
+        pokemonDetail,
         dispatch,
-        navigate,
+        navigate
     }
 
     useEffect(() => {
-        // solo se redirecciona al usuario cuando searchPokemon tiene
-        // un pokemon para mostar
-        if(Object.keys(searchPokemon).length !== 0){
-            handleRedirect(handlersTools);
-        }
-    }, [searchPokemon])
+        handleRedirect(handlersTools)
+    }, [pokemonDetail])
 
     return (
         <div>

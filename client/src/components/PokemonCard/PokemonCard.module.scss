@@ -1,7 +1,11 @@
 .link{
-    text-decoration: none;
     display: inline-block;
 
+    .shiny{
+        width: 20px;
+        position: absolute;
+        cursor: pointer;
+    }
 
     .cardContainer{
         background-color: #fff8;

@@ -1,6 +1,8 @@
 const CreatePage = () => {
     return (
-        <h1>hola soy el create</h1>
+        <div>
+            <form action=""></form>
+        </div>
     )
 }
 

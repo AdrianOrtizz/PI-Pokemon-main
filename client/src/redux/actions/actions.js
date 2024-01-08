@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL } from './actions-types';
+import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL, CREATE_POKEMON } from './actions-types';
 
 const endpoint = 'http://localhost:3001/pokemons';
 
@@ -70,4 +70,18 @@ export const getPokemonDetail = (id) => {
             throw Error(error)
         }
     }
+}
+
+export const createPokemon = (pokemon) => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(endpoint, pokemon);
+            return dispatch({
+                type: CREATE_POKEMON,
+                payload: data
+            })
+        } catch (error) {
+            throw Error(error)
+        }
+    }    
 }

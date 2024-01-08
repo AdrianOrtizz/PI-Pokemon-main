@@ -18,7 +18,7 @@ const getAllPokemons = async (req, res) => {
         }else{
             //* Si la petición llega sin query    
             // trae los 48 pokemons
-
+            
             const pokemonList = await getPokemonsController();
             res.status(200).send(pokemonList);
         }

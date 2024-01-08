@@ -1,5 +1,7 @@
 import { resetState } from "../../redux/actions/actions";
 
+import styles from './DetailPage.module.scss';
+
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -20,7 +22,9 @@ const DetailPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(searchPokemon(id));
+        if(Object.keys(pokemonDetail).length === 0){
+            dispatch(searchPokemon(id));
+        }
         return () => dispatch(resetState())
     }, [])
 
@@ -37,9 +41,9 @@ const DetailPage = () => {
             <img src={shinyImg} alt="shiny" onClick={handleShiny} />
             {
                 shiny ? (
-                    <img src={pokemon.imageShiny} alt={pokemon.name} title={pokemon.name} />
+                    <img src={pokemon.imageShiny} className={styles.foto} alt={pokemon.name} title={pokemon.name} />
                 ) : (
-                    <img src={pokemon.image} alt={pokemon.name} title={pokemon.name} />
+                    <img src={pokemon.image} className={styles.foto} alt={pokemon.name} title={pokemon.name} />
                 )
             }
             <h2>{ pokemon.name }</h2>

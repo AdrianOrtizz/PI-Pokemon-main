@@ -1,4 +1,4 @@
-import { searchPokemon, resetState } from "../../redux/actions/actions";
+import { searchPokemon } from "../../redux/actions/actions";
 
 const regex = /^[a-zA-Z\s]+$/
 

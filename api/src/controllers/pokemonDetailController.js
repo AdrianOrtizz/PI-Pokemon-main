@@ -3,9 +3,12 @@ const axios = require('axios');
 const endpoint = 'https://pokeapi.co/api/v2/pokemon/';
 
 const pokemonDetailController = async (id) => {
+    
     try {
         // el pokemon primero se busca en la base de datos donde están
         // los pokemons creados por el usuario
+
+        console.log('base de datos');
         let pokemonDetail = await Pokemon.findByPk(
             id,
             {
@@ -18,9 +21,12 @@ const pokemonDetailController = async (id) => {
                 }
             }
         );
+        
+        
 
         // si no lo encuentra se lo pide a la api
         if(pokemonDetail === null){
+            console.log('api');
             const { data } = await axios(`${endpoint}${id}`);
             pokemonDetail = {
                 id: data.id,
@@ -43,7 +49,7 @@ const pokemonDetailController = async (id) => {
 
         return pokemonDetail;
     } catch (error) {
-        throw error.message;
+        console.log(error.message);
     }
 }
 

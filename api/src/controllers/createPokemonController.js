@@ -9,7 +9,7 @@ const createPokemonController = async (poke) => {
         // pokedex es el 1017, el que cree el usuario va a ser el 
         // 1018 y se va a ir aumentando cada vez que el usuario cree otro
         const lengthBD = await Pokemon.findAll();
-        const id = lengthBD.length + 1018;
+        const id = lengthBD.length + 9000;
 
         const newPoke = await Pokemon.create({ id, origin: 'DB', ...poke });
 

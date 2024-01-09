@@ -14,6 +14,7 @@ const CreatePage = () => {
         if(Object.keys(pokemonDetail).length !== 0){
             navigate(`/pokemons/${pokemonDetail.id}`);
         }
+
     }, [pokemonDetail])
 
     const [ pokemonData, setPokemonData ] = useState({
@@ -28,8 +29,8 @@ const CreatePage = () => {
         speed:'',
         height:'',
         weight:'',
-        type1:'',
-        type2:'',
+        type1: 0,
+        type2: 20,
     })
 
     const [ errors, setErrors ] = useState({})
@@ -49,23 +50,22 @@ const CreatePage = () => {
             alert('Credentials are not valid')
         }else{
             dispatch(createPokemon(pokemonData));
+            setPokemonData({
+                name:'',
+                image:'',
+                imageShiny:'',
+                hp:'',
+                attack:'',
+                defense:'',
+                specialAttack:'',
+                specialDefense:'',
+                speed:'',
+                height:'',
+                weight:'',
+                type1: 0,
+                type2: 20,
+            })
         }
-
-        setPokemonData({
-            name:'',
-            image:'',
-            imageShiny:'',
-            hp:'',
-            attack:'',
-            defense:'',
-            specialAttack:'',
-            specialDefense:'',
-            speed:'',
-            height:'',
-            weight:'',
-            type1:'',
-            type2:'',
-        })
     }
 
     return (
@@ -144,47 +144,47 @@ const CreatePage = () => {
                 <div>
                     <label htmlFor="type1">firts type:</label>
                     <select name="type1" value={pokemonData.type1} onChange={handleChange}>
-                        <option value="1">Normal</option>
-                        <option value="2">Fight</option>
-                        <option value="3">Flying</option>
-                        <option value="4">Poison</option>
-                        <option value="5">Ground</option>
-                        <option value="6">Rock</option>
-                        <option value="7">Bug</option>
-                        <option value="8">Ghost</option>
-                        <option value="9">Steel</option>
-                        <option value="10">Fire</option>
-                        <option value="11">Water</option>
-                        <option value="12">Grass</option>
-                        <option value="13">Electric</option>
-                        <option value="14">Psychic</option>
-                        <option value="15">Ice</option>
-                        <option value="16">Dragon</option>
-                        <option value="17">Dark</option>
-                        <option value="18">Fairy</option>
+                        <option value={0}>Normal</option>
+                        <option value={1}>Fight</option>
+                        <option value={2}>Flying</option>
+                        <option value={3}>Poison</option>
+                        <option value={4}>Ground</option>
+                        <option value={5}>Rock</option>
+                        <option value={6}>Bug</option>
+                        <option value={7}>Ghost</option>
+                        <option value={8}>Steel</option>
+                        <option value={9}>Fire</option>
+                        <option value={10}>Water</option>
+                        <option value={11}>Grass</option>
+                        <option value={12}>Electric</option>
+                        <option value={13}>Psychic</option>
+                        <option value={14}>Ice</option>
+                        <option value={15}>Dragon</option>
+                        <option value={16}>Dark</option>
+                        <option value={17}>Fairy</option>
                     </select>
 
                     <label htmlFor="type2">{"Second Type (optional):"}</label>
                     <select name="type2" value={pokemonData.type2} onChange={handleChange}>
-                        <option value="0">None</option>
-                        <option value="1">Normal</option>
-                        <option value="2">Fight</option>
-                        <option value="3">Flying</option>
-                        <option value="4">Poison</option>
-                        <option value="5">Ground</option>
-                        <option value="6">Rock</option>
-                        <option value="7">Bug</option>
-                        <option value="8">Ghost</option>
-                        <option value="9">Steel</option>
-                        <option value="10">Fire</option>
-                        <option value="11">Water</option>
-                        <option value="12">Grass</option>
-                        <option value="13">Electric</option>
-                        <option value="14">Psychic</option>
-                        <option value="15">Ice</option>
-                        <option value="16">Dragon</option>
-                        <option value="17">Dark</option>
-                        <option value="18">Fairy</option>
+                        <option value={20}>None</option>
+                        <option value={0}>Normal</option>
+                        <option value={1}>Fight</option>
+                        <option value={2}>Flying</option>
+                        <option value={3}>Poison</option>
+                        <option value={4}>Ground</option>
+                        <option value={5}>Rock</option>
+                        <option value={6}>Bug</option>
+                        <option value={7}>Ghost</option>
+                        <option value={8}>Steel</option>
+                        <option value={9}>Fire</option>
+                        <option value={10}>Water</option>
+                        <option value={11}>Grass</option>
+                        <option value={12}>Electric</option>
+                        <option value={13}>Psychic</option>
+                        <option value={14}>Ice</option>
+                        <option value={15}>Dragon</option>
+                        <option value={16}>Dark</option>
+                        <option value={17}>Fairy</option>
                     </select>
                     <span> {errors.types} </span>
                 </div>

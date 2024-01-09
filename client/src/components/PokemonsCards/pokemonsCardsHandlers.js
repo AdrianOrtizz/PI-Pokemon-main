@@ -1,8 +1,8 @@
 
 import { getAllPokemons, orderPokemons, filterPokemons } from '../../redux/actions/actions';
 
-export const getPokemonsHandler = ({ pokemonsAux, dispatch }) => {
-    pokemonsAux.length === 0 && dispatch(getAllPokemons());
+export const getPokemonsHandler = ({ dispatch }) => {
+    dispatch(getAllPokemons());
 }
 
 export const pagesHandler = ({ page, pokemonsAux, setActualPagePokemons }) => {

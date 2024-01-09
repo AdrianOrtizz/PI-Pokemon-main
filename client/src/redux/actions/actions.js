@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL, CREATE_POKEMON } from './actions-types';
+import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL, CREATE_POKEMON, GET_ALL_TYPES } from './actions-types';
 
 const endpoint = 'http://localhost:3001/pokemons';
 
@@ -14,7 +14,7 @@ export const getAllPokemons = () => {
                 }
             )
         } catch (error) {
-            throw Error(error)
+            throw Error(error.message);
         }
     }
 }
@@ -67,7 +67,7 @@ export const getPokemonDetail = (id) => {
                 }
             )
         } catch (error) {
-            throw Error(error)
+            throw Error(error.message);
         }
     }
 }
@@ -81,7 +81,24 @@ export const createPokemon = (pokemon) => {
                 payload: data
             })
         } catch (error) {
-            throw Error(error)
+            if(error.response.data === 'The pokemon name already exist'){
+                alert('The pokemon name already exist')
+            }
+            console.log(error);
         }
     }    
+}
+
+export const getAllTypes = () => {
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get('http://localhost:3001/type');
+            return dispatch({
+                type: GET_ALL_TYPES,
+                payload: data
+            })
+        } catch (error) {
+            throw Error(error.message);
+        }
+    }
 }

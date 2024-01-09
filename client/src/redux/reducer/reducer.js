@@ -1,9 +1,10 @@
-import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL, CREATE_POKEMON } from "../actions/actions-types";
+import { GET_ALL_POKEMONS, SEARCH_POKEMON, RESET_STATE, ORDER_POKEMONS, FILTER_POKEMONS, GET_POKEMON_DETAIL, CREATE_POKEMON, GET_ALL_TYPES } from "../actions/actions-types";
 
 const initialState = {
     pokemonDetail: {},
     pokemons: [],
     pokemonsAux: [],
+    types: [],
 }
 
 const rootReducer = (state = initialState, { type, payload }) => {
@@ -48,8 +49,11 @@ const rootReducer = (state = initialState, { type, payload }) => {
         case FILTER_POKEMONS:
             if(payload === 'AP'){
                 return {...state, pokemonsAux: state.pokemons}
-            }else{
+            }else if(payload === 'API' || payload === 'DB'){
                 let filteredPokemons = state.pokemons.filter((poke) => poke.origin === payload);
+                return {...state, pokemonsAux: filteredPokemons}
+            }else{
+                let filteredPokemons = state.pokemons.filter((poke) => poke.types[0][name] === payload || poke.types[1][name] == payload);
                 return {...state, pokemonsAux: filteredPokemons}
             }
         
@@ -63,6 +67,12 @@ const rootReducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 pokemonDetail: payload
+            }
+
+        case GET_ALL_TYPES:
+            return {
+                ...state,
+                types: payload
             }
 
         default:

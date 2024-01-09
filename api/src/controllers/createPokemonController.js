@@ -1,19 +1,21 @@
-const { Pokemon, Type } = require('../db');
+const { Pokemon, Type} = require('../db');
 
 const createPokemonController = async (poke) => {
     try {
         // para darle un id, o sea, un número en la pokedex,
         // traemos la cantidad de pokemons que haya creado el usuario
-        // y le sumamos la cantidad de pokemons total que tiene la 
-        // pokedex más uno. Entonces como el último pokemon en la
-        // pokedex es el 1017, el que cree el usuario va a ser el 
-        // 1018 y se va a ir aumentando cada vez que el usuario cree otro
+        // y le sumamos 9000 para asegurarnos de que no hay otro pokemon
+        // con ese id.
         const lengthBD = await Pokemon.findAll();
         const id = lengthBD.length + 9000;
 
-        const newPoke = await Pokemon.create({ id, origin: 'DB', ...poke });
+        const origin = 'DB';
 
-        newPoke.addTypes(poke.types);
+        const newPoke = await Pokemon.create({ id, origin, ...poke });
+
+        console.log(newPoke);
+
+        await newPoke.addTypes(poke.types);
 
         return newPoke;
     } catch (error) {

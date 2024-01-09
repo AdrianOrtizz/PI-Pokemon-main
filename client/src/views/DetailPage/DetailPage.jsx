@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import shinyImg from '../../assets/shiny.png'
 
-import { searchPokemon } from "../../redux/actions/actions";
+import { getPokemonDetail } from "../../redux/actions/actions";
 import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
@@ -22,9 +22,8 @@ const DetailPage = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if(Object.keys(pokemonDetail).length === 0){
-            dispatch(searchPokemon(id));
-        }
+        dispatch(getPokemonDetail(id));
+
         return () => dispatch(resetState())
     }, [])
 
@@ -67,8 +66,8 @@ const DetailPage = () => {
             </ul>
             <h2>
                 Types: 
-                <b> {pokemon.types && pokemon.types[0].name } </b>
-                <b>{pokemon.types && pokemon.types[1] && pokemon.types[1].name}</b>
+                <b> { pokemon.types && pokemon.types[0].name } </b>
+                <b>{ pokemon.types && pokemon.types[1] && pokemon.types[1].name }</b>
             </h2>
 
         </div>

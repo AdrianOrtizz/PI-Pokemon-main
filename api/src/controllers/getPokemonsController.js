@@ -1,3 +1,5 @@
+const { Pokemon, Type } = require('../db');
+
 //* Las peticiones se van a hacer con axios
 const axios = require('axios');
 const endpoint = 'https://pokeapi.co/api/v2/pokemon/';
@@ -40,7 +42,17 @@ const getPokemonsController = async () => {
             return poke;
         })
 
-        return newPokemons;
+        const pokemonsFromDB = await Pokemon.findAll({
+            include: {
+                model: Type,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
+                }
+            }
+        });
+
+        return [...newPokemons, ...pokemonsFromDB];
         
     } catch (error) {
         throw error.message

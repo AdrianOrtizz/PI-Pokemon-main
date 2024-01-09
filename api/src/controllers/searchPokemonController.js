@@ -12,22 +12,18 @@ const searchPokemonController = async (name) => {
         
         name = name.toLowerCase();
 
-        let poke = await Pokemon.findOne(
-            {
-                where: {
-                    name: name
-                }
+        let poke = await Pokemon.findOne({
+            where: {
+                name: name
             },
-            {
-                include: {
-                    model: Type,
-                    attributes: ["name"],
-                    through: {
-                        attributes: [],
-                    }
+            include: {
+                model: Type,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
                 }
             }
-        );
+        });
 
         if(poke === null){
             const { data } = await axios(`${endpoint}${name}`);
@@ -55,6 +51,7 @@ const searchPokemonController = async (name) => {
     
         return poke;
     } catch (error) {
+        console.log(error.message);
         throw Error('The requested pokemon does not exist')
     }
 }

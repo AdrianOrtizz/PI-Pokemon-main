@@ -53,7 +53,9 @@ const rootReducer = (state = initialState, { type, payload }) => {
                 let filteredPokemons = state.pokemons.filter((poke) => poke.origin === payload);
                 return {...state, pokemonsAux: filteredPokemons}
             }else{
-                let filteredPokemons = state.pokemons.filter((poke) => poke.types[0][name] === payload || poke.types[1][name] == payload);
+                let filteredPokemons = state.pokemons.filter((poke) => {
+                    return poke.types[0].name === payload || (poke.types[1] && poke.types[1].name === payload)
+                })
                 return {...state, pokemonsAux: filteredPokemons}
             }
         

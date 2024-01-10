@@ -84,7 +84,7 @@ export const createPokemon = (pokemon) => {
             if(error.response.data === 'The pokemon name already exist'){
                 alert('The pokemon name already exist')
             }
-            console.log(error);
+            throw Error(error.message);
         }
     }    
 }

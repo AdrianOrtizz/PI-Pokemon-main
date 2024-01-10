@@ -8,9 +8,12 @@ import { useParams, Link } from "react-router-dom";
 
 import { getPokemonsHandler, pagesHandler, handlerOrder, handlerFilter } from './pokemonsCardsHandlers';
 
+import { getAllTypes } from '../../redux/actions/actions';
+
 const PokemonsCards = () => {
 
     const pokemonsAux = useSelector((state) => state.pokemonsAux);
+    const types = useSelector((state) => state.types);
     const [ actualPagePokemons, setActualPagePokemons ] = useState([]);
 
     const dispatch = useDispatch();
@@ -26,6 +29,7 @@ const PokemonsCards = () => {
 
     useEffect(() => {
         getPokemonsHandler(handlerTools);
+        dispatch(getAllTypes());
     }, [])
 
     useEffect(() => {
@@ -35,28 +39,15 @@ const PokemonsCards = () => {
     return (
         <section>
             <div className={styles.filtersContainer}>
-                <select name="FilterByOrigin" onChange={() => handlerFilter(event, handlerTools)}>
+                <select name="Filter" onChange={() => handlerFilter(event, handlerTools)}>
                     <option value="AP"> All Pokemons </option>
                     <option value="API"> Originals </option>
                     <option value="DB"> Created by the community </option>
-                    <option value='normal'>Normal</option>
-                    <option value='fight'>Fight</option>
-                    <option value='flying'>Flying</option>
-                    <option value='poison'>Poison</option>
-                    <option value='ground'>Ground</option>
-                    <option value='rock'>Rock</option>
-                    <option value='bug'>Bug</option>
-                    <option value='ghost'>Ghost</option>
-                    <option value='steel'>Steel</option>
-                    <option value='fire'>Fire</option>
-                    <option value='water'>Water</option>
-                    <option value='grass'>Grass</option>
-                    <option value='electric'>Electric</option>
-                    <option value='psychic'>Psychic</option>
-                    <option value='ice'>Ice</option>
-                    <option value='dragon'>Dragon</option>
-                    <option value='dark'>Dark</option>
-                    <option value='fairy'>Fairy</option> 
+                    {
+                        types && types.map(type => {
+                            return (<option key={type.name} value={type.name}> {type.name} </option>)
+                        })
+                    }
                 </select>
 
                 <select name="Order" onChange={() => handlerOrder(event, handlerTools)}>
@@ -72,12 +63,10 @@ const PokemonsCards = () => {
             </div>
 
             <span>
-                {page > 1 && <Link to={`/home/${page - 1}`}> {' < '} </Link>} 
+                { page > 1 && <Link to={`/home/${page - 1}`}> {' < '} </Link> } 
                 { page } 
-                {page < pokemonsAux.length / 12 && <Link to={`/home/${page + 1}`}> {' > '} </Link>}
+                { page < pokemonsAux.length / 12 && <Link to={`/home/${page + 1}`}> {' > '} </Link> }
             </span>
-            
-            {console.log(pokemonsAux[0])}
 
             <div className={styles.cardsContainer}>
                 { actualPagePokemons.length === 0 && <p> Loading... </p> }

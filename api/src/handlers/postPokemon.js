@@ -5,7 +5,13 @@ const createPokemonController = require('../controllers/createPokemonController'
 
 const postPokemon = async (req, res) => {
     try {
-        const { name, image, imageShiny, hp, attack, defense, specialAttack, specialDefense, speed, height, weight, type1, type2 } = req.body;
+        let { name, image, imageShiny, hp, attack, defense, specialAttack, specialDefense, speed, height, weight, type1, type2 } = req.body;
+
+        name = name.toLowerCase();
+
+        if(name.includes(' ')){
+            name = name.replace(' ', '-');
+        }
         
         const types = [type1, type2];
 
@@ -18,7 +24,8 @@ const postPokemon = async (req, res) => {
         })
 
         if(!pokeExist){
-            const newPokemon = await createPokemonController({ name, image, imageShiny, hp, attack, defense, specialAttack, specialDefense, speed, height, weight, types });
+            const origin = 'DB';
+            const newPokemon = await createPokemonController({ name, image, imageShiny, hp, attack, defense, specialAttack, specialDefense, speed, height, weight, types, origin });
             res.status(201).json(newPokemon);
         }else{
             res.status(500).send('The pokemon name already exist');

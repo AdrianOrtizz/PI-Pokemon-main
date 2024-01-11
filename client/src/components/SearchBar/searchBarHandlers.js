@@ -20,6 +20,11 @@ export const handleSearch = ( { pokemonSerchead, setPokemonSerchead, dispatch } 
     }
 }
 
+export const handleRandom = ( { navigate } ) => {
+    let randomNumber = Math.trunc(Math.random() * 1015);
+    navigate(`/pokemons/${randomNumber}`);
+}
+
 export const handleKey = (event, { pokemonSerchead, setPokemonSerchead, dispatch } ) => {
     if(event.key === 'Enter'){
         handleSearch({pokemonSerchead, setPokemonSerchead, dispatch})

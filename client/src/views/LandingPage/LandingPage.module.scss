@@ -22,7 +22,7 @@ main{
         }
     
         100%{
-            top: 0px;
+            top: 20px;
         }
     }
 
@@ -53,7 +53,6 @@ main{
         position: absolute;
         width: 400px;
         bottom: 30px;
-        left: -500px;
         
         animation-name: pelipperPresentation;
         animation-duration: 3s;
@@ -63,10 +62,11 @@ main{
 
     @keyframes pelipperPresentation {
         0%{
-
+            left: -500px;
         }
 
         100%{
+            bottom: -60px;
             left: 100px;
             transform: rotate(-30deg);
         }
@@ -119,11 +119,19 @@ main{
     }
     
     .homeBtn{
-        width: 6em;
-        height: 2em;
-        display: inline-block;
-        background-color: #ffca04;
-        
-        border: 4px solid #2e6db4;
+        animation-name: btnPresentation;
+        animation-duration: 3s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease;
+    }
+
+    @keyframes btnPresentation {
+        0%{
+            opacity: 0;
+        }
+
+        100%{
+            opacity: 1;
+        }
     }
 }

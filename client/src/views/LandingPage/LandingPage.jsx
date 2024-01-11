@@ -4,6 +4,7 @@ import charmeleon from '../../assets/pokemons/charmeleon.png';
 import pelipper from '../../assets/pokemons/pelipper.png';
 import ditto from '../../assets/pokemons/ditto.png'
 import dialga from '../../assets/pokemons/Dialga.png'
+import goHome from '../../assets/goHome.png'
 
 import { Link } from 'react-router-dom';
 
@@ -18,9 +19,7 @@ const LandingPage = () => {
             <img src={dialga} alt="pokemon dialga" title='dialga' className={styles.dialgaImg} />
 
             <Link to='/home/1'>
-                <span className={styles.homeBtn}>
-                    Go home
-                </span>
+                <img src={goHome} alt="go home button" title='home button' className={styles.homeBtn} />
             </Link>
         </main>
     )

@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import { handleChange, handleSearch, handleKey, handleRedirect } from "./searchBarHandlers";
+import { handleChange, handleSearch, handleKey, handleRedirect, handleRandom } from "./searchBarHandlers";
+
+import styles from './SearchBar.module.scss'
 
 const SearchBar = () => {
 
@@ -25,18 +27,27 @@ const SearchBar = () => {
     }, [pokemonDetail])
 
     return (
-        <div>
+        <div className={styles.searchBarContainer}>
+
+            <span 
+                onClick={() => handleRandom(handlersTools)}
+                className={styles.randomBtn}
+            >
+                Random Pokemon!
+            </span>
+
             <input 
                 type="text"
                 placeholder="Search pokemons!"
                 value={pokemonSerchead}
                 onChange={() => handleChange(event, handlersTools)} 
                 onKeyDown={() => handleKey(event, handlersTools)}
+                className={styles.input}
             />
 
-            <button onClick={() => handleSearch(handlersTools)}>
+            <span onClick={() => handleSearch(handlersTools)} className={styles.btn}>
                 🔍
-            </button>
+            </span>
         </div>
     )
 }

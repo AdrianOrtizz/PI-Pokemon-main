@@ -1,0 +1,44 @@
+.searchBarContainer{
+    position: absolute;
+
+    top: 50px;
+    right: 50px;
+
+    .input{
+        width: 200px;
+        height: 25px;
+        border-radius: 10px;
+        border: 0;
+
+        &::placeholder{
+            font-size: 15px;
+        }
+
+        &:focus{
+            outline: 0;
+        }
+    }
+
+    .btn{
+        position: absolute;
+        top: 3px;
+        right: 5px;
+        font-size: 13px;
+    }
+
+    .randomBtn{
+        display: inline-block;
+        position: absolute;
+        top: 2px;
+        right: 220px;
+        text-align: center;
+
+        font-size: 18px;
+        width: 150px;
+        height: 26px;
+        background-color: white;
+        border-radius: 10px;
+
+        cursor: pointer;
+    }
+}

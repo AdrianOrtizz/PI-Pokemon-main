@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 import { validate } from "./validate";
 import { createPokemon } from "../../redux/actions/actions";
 
+import styles from './CreatePage.module.scss';
+
 const CreatePage = () => {
 
     const dispatch = useDispatch();
@@ -70,79 +72,33 @@ const CreatePage = () => {
     }
 
     return (
-        <div>
+        <section className={styles.createContainer}>
 
             <h2>Create Pokemons!</h2>
 
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name: </label>
-                    <input name="name" type="text" value={pokemonData.name} onChange={handleChange} />
-                    <span> {errors.name} </span>
-                </div>
+                <div className={styles.basic}>
+                    <div>
+                        <label htmlFor="name">Name: </label>
+                        <input name="name" type="text" value={pokemonData.name} onChange={handleChange} />
+                        { errors.name && <span> {errors.name} </span>}
+                    </div>
 
-                <div>
-                    <label htmlFor="image">Image: </label>
-                    <input name="image" type="text" value={pokemonData.image} onChange={handleChange} />
-                    <span> {errors.image} </span>
-                </div>
+                    <div>
+                        <label htmlFor="image">Image: </label>
+                        <input name="image" type="text" value={pokemonData.image} onChange={handleChange} />
+                        { pokemonData.image && <div className={styles.imgVP}><img src={pokemonData.image} title="pokemon image" alt="pokemon image" /></div> }
+                        { errors.image && <span> {errors.image} </span>}
+                    </div>
 
-                <div>
-                    <label htmlFor="imageShiny">Image Shiny: </label>
-                    <input name="imageShiny" type="text" value={pokemonData.imageShiny} onChange={handleChange} />
-                    <span> {errors.imageShiny} </span>
-                </div>
+                    <div>
+                        <label htmlFor="imageShiny">Image Shiny: </label>
+                        <input name="imageShiny" type="text" value={pokemonData.imageShiny} onChange={handleChange} />
+                        { pokemonData.imageShiny && <div className={styles.imgVP}><img src={pokemonData.imageShiny} title="pokemon image shiny" alt="pokemon image shiny" /></div> }
+                        { errors.imageShiny && <span> {errors.imageShiny} </span>}
+                    </div>
 
-                <div>
-
-                    <label htmlFor="hp">HP: </label>
-                    <input name="hp" type="text" value={pokemonData.hp} onChange={handleChange} />
-                    <span> {errors.hp} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="attack">Attack: </label>
-                    <input name="attack" type="text" value={pokemonData.attack} onChange={handleChange} />
-                    <span> {errors.attack} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="specialAttack">Special Attack: </label>
-                    <input name="specialAttack" type="text" value={pokemonData.specialAttack} onChange={handleChange} />
-                    <span> {errors.specialAttack} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="defense">Defense: </label>
-                    <input name="defense" type="text" value={pokemonData.defense} onChange={handleChange} />
-                    <span> {errors.defense} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="specialDefense">Special Defense: </label>
-                    <input name="specialDefense" type="text" value={pokemonData.specialDefense} onChange={handleChange} />
-                    <span> {errors.specialDefense} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="speed">Speed: </label>
-                    <input name="speed" type="text" value={pokemonData.speed} onChange={handleChange} />
-                    <span> {errors.speed} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="height">Height: </label>
-                    <input name="height" type="text" value={pokemonData.height} onChange={handleChange} />
-                    <span> {errors.height} </span>
-                </div>
-
-                <div>
-                    <label htmlFor="weight">Weight: </label>
-                    <input name="weight" type="text" value={pokemonData.weight} onChange={handleChange} />
-                    <span> {errors.weight} </span>
-                </div>
-
-                <div>
+                    <div>
                     <label htmlFor="type1">firts type:</label>
                     <select name="type1" value={pokemonData.type1} onChange={handleChange}>
                         {
@@ -151,7 +107,9 @@ const CreatePage = () => {
                             })
                         }
                     </select>
-
+                </div>
+                
+                <div>
                     <label htmlFor="type2">{"Second Type (optional):"}</label>
                     <select name="type2" value={pokemonData.type2} onChange={handleChange}>
                         <option value={20}>None</option>
@@ -161,12 +119,66 @@ const CreatePage = () => {
                             })
                         }
                     </select>
-                    <span> {errors.types} </span>
+                    { errors.types && <span> {errors.types} </span>}
                 </div>
 
+                </div>
+
+                <div className={styles.stats}>
+
+                    <div>
+                        <label htmlFor="hp">HP: </label>
+                        <input name="hp" type="number" value={pokemonData.hp} onChange={handleChange} />
+                        { errors.hp && <span> {errors.hp} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="attack">Attack: </label>
+                        <input name="attack" type="number" value={pokemonData.attack} onChange={handleChange} />
+                        { errors.attack && <span> {errors.attack} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="specialAttack">Special Attack: </label>
+                        <input name="specialAttack" type="number" value={pokemonData.specialAttack} onChange={handleChange} />
+                        { errors.specialAttack && <span> {errors.specialAttack} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="defense">Defense: </label>
+                        <input name="defense" type="number" value={pokemonData.defense} onChange={handleChange} />
+                        { errors.defense && <span> {errors.defense} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="specialDefense">Special Defense: </label>
+                        <input name="specialDefense" type="number" value={pokemonData.specialDefense} onChange={handleChange} />
+                        { errors.specialDefense && <span> {errors.specialDefense} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="speed">Speed: </label>
+                        <input name="speed" type="number" value={pokemonData.speed} onChange={handleChange} />
+                        { errors.speed && <span> {errors.speed} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="height">Height: </label>
+                        <input name="height" type="number" value={pokemonData.height} onChange={handleChange} />
+                        { errors.height && <span> {errors.height} </span>}
+                    </div>
+
+                    <div>
+                        <label htmlFor="weight">Weight: </label>
+                        <input name="weight" type="number" value={pokemonData.weight} onChange={handleChange} />
+                        { errors.weight && <span> {errors.weight} </span>}
+                    </div>
+                </div>
+
+                
                 <button type="submit"> Create! </button>
             </form>
-        </div>
+        </section>
     )
 }
 

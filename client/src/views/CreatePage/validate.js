@@ -7,7 +7,7 @@ export const validate = (form) => {
     const regexURL = /^(ftp|http|https):\/\/[^ "]+$/;
 
     if(!regexOnlyLetters.test(form.name)){
-        errors = {...errors, name: 'The Pokémon cannot have numbers or any other special characters in its name.'}
+        errors = {...errors, name: 'The Pokémon name only can have letters'}
     }
 
     if(!regexURL.test(form.image)){
@@ -19,7 +19,7 @@ export const validate = (form) => {
     }
 
     if(form.hp < 1 || form.hp > 255){
-        errors = {...errors, hp: 'The statistic must be greater than or equal to 1 and less than or equal to 255'}
+        errors = {...errors, hp: "The pokemon's statistics have to be between 1 and 255"}
     }
 
     if(!regexOnlyNumbers.test(form.hp)){
@@ -27,7 +27,7 @@ export const validate = (form) => {
     }
 
     if(form.attack < 1 || form.attack > 255){
-        errors = {...errors, attack: 'The statistic must be greater than or equal to 1 and less than or equal to 255'}
+        errors = {...errors, attack: "The pokemon's statistics have to be between 1 and 255"}
     }
 
     if(!regexOnlyNumbers.test(form.attack)){
@@ -35,7 +35,7 @@ export const validate = (form) => {
     }
 
     if(form.defense < 1 || form.defense > 255){
-        errors = {...errors, defense: 'The statistic must be greater than or equal to 1 and less than or equal to 255'}
+        errors = {...errors, defense: "The pokemon's statistics have to be between 1 and 255"}
     }
 
     if(!regexOnlyNumbers.test(form.defense)){
@@ -43,7 +43,7 @@ export const validate = (form) => {
     }
 
     if(form.specialAttack < 1 || form.specialAttack > 255){
-        errors = {...errors, specialAttack: 'The statistic must be greater than or equal to 1 and less than or equal to 255'}
+        errors = {...errors, specialAttack: "The pokemon's statistics have to be between 1 and 255"}
     }
 
     if(!regexOnlyNumbers.test(form.specialAttack)){
@@ -51,7 +51,7 @@ export const validate = (form) => {
     }
     
     if(form.specialDefense < 1 || form.specialDefense > 255){
-        errors = {...errors, specialDefense: 'The statistic must be greater than or equal to 1 and less than or equal to 255'}
+        errors = {...errors, specialDefense: "The pokemon's statistics have to be between 1 and 255"}
     }
 
     if(!regexOnlyNumbers.test(form.specialDefense)){
@@ -59,7 +59,7 @@ export const validate = (form) => {
     }
     
     if(form.speed < 1 || form.speed > 255){
-        errors = {...errors, speed: 'The statistic must be greater than or equal to 1 and less than or equal to 255'}
+        errors = {...errors, speed: "The pokemon's statistics have to be between 1 and 255"}
     }
 
     if(!regexOnlyNumbers.test(form.speed)){

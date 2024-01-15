@@ -51,8 +51,8 @@ const searchPokemonController = async (name) => {
     
         return poke;
     } catch (error) {
-        console.log(error.message);
-        throw Error('The requested pokemon does not exist')
+        const poke = null;
+        return poke;
     }
 }
 

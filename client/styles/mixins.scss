@@ -1,0 +1,36 @@
+// Pantallas de celulares
+$screen-psm: 440px;
+$screen-plg: 720px;
+
+// Pantallas de tablets
+$screen-md: 1023px;
+
+// Pantallas de pc
+$screen-lg: 1024px;
+
+// Mixin para celulares
+@mixin psm {
+    @media only screen and (max-width: $screen-psm) {
+        @content;
+    }
+}
+
+@mixin plg {
+    @media only screen and (min-width: $screen-psm) and (max-width: $screen-plg) {
+        @content;
+    }
+}
+
+// Mixin para tablets
+@mixin md {
+    @media only screen and (min-width: $screen-plg) and (max-width: $screen-md) {
+        @content;
+    }
+}
+
+// Mixin para pc
+@mixin lg {
+    @media only screen and (min-width: $screen-lg) {
+        @content;
+    }
+}

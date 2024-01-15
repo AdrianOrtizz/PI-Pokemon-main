@@ -1,28 +1,24 @@
-
 const { Pokemon } = require('../db')
 
 const createPokemonController = require('../controllers/createPokemonController');
+const searchPokemonController = require('../controllers/searchPokemonController');
 
 const postPokemon = async (req, res) => {
     try {
         let { name, image, imageShiny, hp, attack, defense, specialAttack, specialDefense, speed, height, weight, type1, type2 } = req.body;
-
-        name = name.toLowerCase();
-
-        if(name.includes(' ')){
-            name = name.replace(' ', '-');
-        }
         
         const types = [type1, type2];
 
         type2 === 20 && types.pop();
         
-        const pokeExist = await Pokemon.findOne({
-            where: {
-                name: name
-            }
-        })
+        // let pokeExist = await Pokemon.findOne({
+        //     where: {
+        //         name: name
+        //     }
+        // })
 
+        const pokeExist = await searchPokemonController(name);
+        
         if(!pokeExist){
             const origin = 'DB';
             const newPokemon = await createPokemonController({ name, image, imageShiny, hp, attack, defense, specialAttack, specialDefense, speed, height, weight, types, origin });

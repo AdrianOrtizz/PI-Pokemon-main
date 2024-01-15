@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { validate } from "./validate";
-import { createPokemon } from "../../redux/actions/actions";
+import { createPokemon, getAllTypes } from "../../redux/actions/actions";
 
 import styles from './CreatePage.module.scss';
 
@@ -14,10 +14,15 @@ const CreatePage = () => {
     const types = useSelector(state => state.types);
 
     useEffect(() => {
+        dispatch(getAllTypes());
+    }, [])
+
+    useEffect(() => {
         if(Object.keys(pokemonDetail).length !== 0){
             navigate(`/pokemons/${pokemonDetail.id}`);
+        }else{
+            navigate('/create');
         }
-
     }, [pokemonDetail])
 
     const [ pokemonData, setPokemonData ] = useState({

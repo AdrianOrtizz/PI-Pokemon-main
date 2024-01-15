@@ -1,6 +1,11 @@
+import styles from './ErrorPage.module.scss';
+
 const ErrorPage = () => {
     return (
-        <h1>hola soy el error</h1>
+        <section className={styles.error}>
+            <h2>Page not found</h2>
+            <h2>ERROR:404</h2>
+        </section>
     )
 }
 

@@ -82,9 +82,10 @@ export const createPokemon = (pokemon) => {
             })
         } catch (error) {
             if(error.response.data === 'The pokemon name already exist'){
-                alert('The pokemon name already exist')
+                alert('The pokemon name already exist');
+            }else{
+                throw Error(error.message);
             }
-            throw Error(error.message);
         }
     }    
 }

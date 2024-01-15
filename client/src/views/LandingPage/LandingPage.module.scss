@@ -1,137 +1,516 @@
-main{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-
-    .logoImg{
-        width: 500px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+@include lg {
+    main{
     
-        animation-name: logoPresentation;
-        animation-duration: 2s;
-        animation-fill-mode: forwards;
-    }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
     
-    @keyframes logoPresentation {
-        0%{
-            top: -500px;
+        .logoImg{
+            width: 500px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        
+            animation-name: logoPresentation;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes logoPresentation {
+            0%{
+                top: -500px;
+            }
+        
+            100%{
+                top: 20px;
+            }
         }
     
-        100%{
+        .charmeleonImg{
+            position: absolute;
+            width: 500px;
+            top: 0px;
+    
+            animation-name: charmeleonPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes charmeleonPresentation {
+            0%{
+                right: -500px;
+            }
+    
+            100%{
+                right: -200px;
+                transform: rotate(-30deg);
+            }
+        }
+        
+        .pelipperImg{
+            position: absolute;
+            width: 400px;
+            bottom: -150px;
+            
+            animation-name: pelipperPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes pelipperPresentation {
+            0%{
+                left: -500px;
+            }
+    
+            100%{
+                left: -20px;
+                transform: rotate(-30deg);
+            }
+        }
+    
+        .dittoImg{
+            position: absolute;
+            width: 400px;
+            right: -100px;
+            
+            animation-name: dittoPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes dittoPresentation {
+            0%{
+                bottom: -500px;
+                right: -500px;
+            }
+    
+            100%{
+                bottom: -100px;
+                transform: rotate(-40deg);
+            }
+        }
+        
+        .dialgaImg{
+            position: absolute;
+            width: 600px;
+            top: -200px;
+            
+            animation-name: dialgaPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes dialgaPresentation {
+            0%{
+                left: -800px;
+            }
+    
+            100%{
+                left: -250px;
+                transform: rotate(70deg);
+            }
+        }
+        
+        .homeBtn{
+            animation-name: btnPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes btnPresentation {
+            0%{
+                opacity: 0;
+            }
+    
+            100%{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@include md {
+    main{
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    
+        .logoImg{
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        
+            animation-name: logoPresentation;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes logoPresentation {
+            0%{
+                top: -500px;
+            }
+        
+            100%{
+                top: 20px;
+            }
+        }
+    
+        .charmeleonImg{
+            position: absolute;
+            width: 350px;
             top: 20px;
-        }
-    }
-
-    .charmeleonImg{
-        position: absolute;
-        width: 500px;
-        top: 20px;
-
-        animation-name: charmeleonPresentation;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-    }
-
-    @keyframes charmeleonPresentation {
-        0%{
-            right: -500px;
-            transform: rotate(45deg);
-        }
-
-        100%{
-            right: 20px;
-            transform: rotate(-10deg);
-        }
-    }
     
-    .pelipperImg{
-        position: absolute;
-        width: 400px;
-        bottom: 30px;
-        
-        animation-name: pelipperPresentation;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-    }
-
-    @keyframes pelipperPresentation {
-        0%{
-            left: -500px;
+            animation-name: charmeleonPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
         }
-
-        100%{
-            bottom: -60px;
-            left: 100px;
-            transform: rotate(-30deg);
-        }
-    }
-
-    .dittoImg{
-        position: absolute;
-        width: 400px;
-        bottom: 30px;
-        right: 20px;
-        
-        animation-name: dittoPresentation;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-    }
-
-    @keyframes dittoPresentation {
-        0%{
-            bottom: -500px;
-            right: -500px;
-        }
-
-        100%{
-            rigth: 0px;
-            transform: rotate(-40deg);
-        }
-    }
     
-    .dialgaImg{
-        position: absolute;
-        width: 600px;
-        top: -200px;
-        
-        animation-name: dialgaPresentation;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-    }
-
-    @keyframes dialgaPresentation {
-        0%{
-            left: -800px;
-        }
-
-        100%{
-            left: -150px;
-            transform: rotate(70deg);
-        }
-    }
+        @keyframes charmeleonPresentation {
+            0%{
+                right: -500px;
+                transform: rotate(45deg);
+            }
     
-    .homeBtn{
-        animation-name: btnPresentation;
-        animation-duration: 3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
+            100%{
+                right: -190px;
+                transform: rotate(-30deg);
+            }
+        }
+        
+        .pelipperImg{
+            position: absolute;
+            width: 400px;
+            
+            animation-name: pelipperPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        
+        @keyframes pelipperPresentation {
+            0%{
+                bottom: -100px;
+                left: -500px;
+            }
+    
+            100%{
+                bottom: -150px;
+                left: -50px;
+                transform: rotate(-30deg);
+            }
+        }
+    
+        .dittoImg{
+            position: absolute;
+            width: 300px;
+            right: 0px;
+            
+            animation-name: dittoPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes dittoPresentation {
+            0%{
+                bottom: -500px;
+                right: -500px;
+            }
+    
+            100%{
+                bottom: -100px;
+                transform: rotate(-40deg);
+            }
+        }
+        
+        .dialgaImg{
+            position: absolute;
+            width: 450px;
+            
+            animation-name: dialgaPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        
+        @keyframes dialgaPresentation {
+            0%{
+                top: -200px;
+                left: -800px;
+            }
+    
+            100%{
+                top: -50px;
+                left: -250px;
+                transform: rotate(20deg);
+            }
+        }
+        
+        .homeBtn{
+            animation-name: btnPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes btnPresentation {
+            0%{
+                opacity: 0;
+            }
+    
+            100%{
+                opacity: 1;
+            }
+        }
     }
+}
 
-    @keyframes btnPresentation {
-        0%{
-            opacity: 0;
+@include plg{
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    
+        .logoImg{
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        
+            animation-name: logoPresentation;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes logoPresentation {
+            0%{
+                top: -500px;
+            }
+        
+            100%{
+                top: 20px;
+            }
+        }
+    
+        .charmeleonImg{
+            position: absolute;
+            width: 350px;
+            top: 20px;
+    
+            animation-name: charmeleonPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes charmeleonPresentation {
+            0%{
+                right: -500px;
+                transform: rotate(45deg);
+            }
+    
+            100%{
+                right: -190px;
+                transform: rotate(-30deg);
+            }
+        }
+        
+        .pelipperImg{
+            position: absolute;
+            width: 400px;
+            
+            animation-name: pelipperPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        
+        @keyframes pelipperPresentation {
+            0%{
+                bottom: -100px;
+                left: -500px;
+            }
+    
+            100%{
+                bottom: -150px;
+                left: -50px;
+                transform: rotate(-30deg);
+            }
+        }
+    
+        .dittoImg{
+            position: absolute;
+            width: 300px;
+            right: 0px;
+            
+            animation-name: dittoPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes dittoPresentation {
+            0%{
+                bottom: -500px;
+                right: -500px;
+            }
+    
+            100%{
+                bottom: -100px;
+                transform: rotate(-40deg);
+            }
+        }
+        
+        .dialgaImg{
+            position: absolute;
+            width: 450px;
+            
+            animation-name: dialgaPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        
+        @keyframes dialgaPresentation {
+            0%{
+                top: -200px;
+                left: -800px;
+            }
+    
+            100%{
+                top: -50px;
+                left: -300px;
+                transform: rotate(20deg);
+            }
+        }
+        
+        .homeBtn{
+            animation-name: btnPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes btnPresentation {
+            0%{
+                opacity: 0;
+            }
+    
+            100%{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@include psm{
+    main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    
+        .logoImg{
+            width: 400px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        
+            animation-name: logoPresentation;
+            animation-duration: 2s;
+            animation-fill-mode: forwards;
+        }
+        
+        @keyframes logoPresentation {
+            0%{
+                top: -500px;
+            }
+        
+            100%{
+                top: 20px;
+            }
+        }
+    
+        .charmeleonImg{
+            display: none;
         }
 
-        100%{
-            opacity: 1;
+        .dialgaImg{
+            display: none;
+        }
+        
+        .pelipperImg{
+            position: absolute;
+            width: 200px;
+            
+            animation-name: pelipperPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+        
+        @keyframes pelipperPresentation {
+            0%{
+                bottom: -100px;
+                left: -500px;
+            }
+    
+            100%{
+                bottom: -70px;
+                left: -50px;
+                transform: rotate(-30deg);
+            }
+        }
+    
+        .dittoImg{
+            position: absolute;
+            width: 200px;
+            right: -20px;
+            
+            animation-name: dittoPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes dittoPresentation {
+            0%{
+                bottom: -500px;
+                right: -500px;
+            }
+    
+            100%{
+                bottom: -50px;
+                transform: rotate(-40deg);
+            }
+        }
+        
+        .homeBtn{
+            animation-name: btnPresentation;
+            animation-duration: 3s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease;
+        }
+    
+        @keyframes btnPresentation {
+            0%{
+                opacity: 0;
+            }
+    
+            100%{
+                opacity: 1;
+            }
         }
     }
 }

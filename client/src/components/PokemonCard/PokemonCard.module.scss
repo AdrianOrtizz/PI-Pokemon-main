@@ -1,78 +1,168 @@
-.container{
-    display: inline-block;
-    position: relative;
-
-    width: 270px;
-    height: 330px;
+@include lg {
+    .container{
+        display: inline-block;
+        position: relative;
     
-    background-color: #fff8;
-    outline: 5px solid #ff0;
-    
-    margin: 10px;
-    border-radius: 10px;
-
-    
-    
-    .shiny{
-        width: 40px;
+        width: 270px;
+        height: 330px;
         
-        position: absolute;
-        z-index: 10;
-        top: 10px;
-        left: 10px;
-
-        cursor: pointer;
-    }
-    
-    .link{
-        text-decoration: none;
-    }
-
-    .pokemonContainer{
-        color: #000;
+        background-color: #fff8;
+        outline: 5px solid #ff0;
         
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        width: 100%;
-        height: 100%;
-
-        .imgContainer{
-            width: 110px;
-            height: 110px;
-
-            .pkmImage{
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
+        margin: 10px;
+        border-radius: 10px;
+    
+        transition: transform 0.3s;
+        
+        .shiny{
+            width: 40px;
+            
+            position: absolute;
+            z-index: 10;
+            top: 10px;
+            left: 10px;
+    
+            cursor: pointer;
         }
-
-        .typesContainer{
+        
+        .link{
+            text-decoration: none;
+        }
+    
+        .pokemonContainer{
+            color: #000;
+            
             display: flex;
             flex-direction: column;
-
-            span{
+            align-items: center;
+    
+            width: 100%;
+            height: 100%;
+    
+            .imgContainer{
                 width: 110px;
-                height: 35px;
-                font-size: 20px;
-
-                text-shadow: 0 0 4px #000;
-                
-                color: #fff;
-                border: 2px solid #000;
-                
-                margin: 2px;
-
-                text-align: center;
-
+                height: 110px;
+    
+                .pkmImage{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
-
+    
+            .typesContainer{
+                display: flex;
+                flex-direction: column;
+                margin: 10px 0;
+    
+                span{
+                    width: 110px;
+                    height: 35px;
+                    font-size: 20px;
+    
+                    text-shadow: 0 0 4px #000;
+                    
+                    color: #fff;
+                    border: 2px solid #000;
+                    
+                    margin: 2px;
+    
+                    text-align: center;
+    
+                }
+    
+            }
+        }
+    
+        &:hover{
+            z-index: 20;
+            transform: scale(1.05);
         }
     }
 }
 
+@include md {
+    .container{
+        display: inline-block;
+        position: relative;
+    
+        width: 200px;
+        height: 230px;
+        
+        background-color: #fff8;
+        outline: 5px solid #ff0;
+        
+        margin: 10px;
+        border-radius: 10px;
+    
+        transition: transform 0.3s;
+        
+        .shiny{
+            width: 40px;
+            
+            position: absolute;
+            z-index: 10;
+            top: 10px;
+            left: 10px;
+    
+            cursor: pointer;
+        }
+        
+        .link{
+            text-decoration: none;
+        }
+    
+        .pokemonContainer{
+            color: #000;
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+    
+            width: 100%;
+            height: 100%;
+    
+            .imgContainer{
+                width: 110px;
+                height: 110px;
+    
+                .pkmImage{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+    
+            .typesContainer{
+                display: flex;
+                flex-direction: column;
+                margin: 10px 0;
+    
+                span{
+                    width: 110px;
+                    height: 35px;
+                    font-size: 20px;
+    
+                    text-shadow: 0 0 4px #000;
+                    
+                    color: #fff;
+                    border: 2px solid #000;
+                    
+                    margin: 2px;
+    
+                    text-align: center;
+    
+                }
+    
+            }
+        }
+    
+        &:hover{
+            z-index: 20;
+            transform: scale(1.05);
+        }
+    }
+}
 
 .normal{
     background-color: #a9a878;

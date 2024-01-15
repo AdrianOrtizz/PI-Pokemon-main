@@ -44,7 +44,7 @@ const pokemonDetailController = async (id) => {
 
         return pokemonDetail;
     } catch (error) {
-        console.log(error.message);
+        throw Error('The request pokemon does not exist');
     }
 }
 

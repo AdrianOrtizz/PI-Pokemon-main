@@ -1,10 +1,11 @@
+//* Estilos
 import styles from './PokemonCard.module.scss';
 
+//* Boton para hacer shiny un pokemon
 import shinyImg from '../../assets/shiny.png';
 
-import { Link } from 'react-router-dom';
-
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const PokemonCard = ({ id, name, image, imageShiny, types }) => {
@@ -21,7 +22,9 @@ const PokemonCard = ({ id, name, image, imageShiny, types }) => {
 
             <Link to={`/pokemons/${id}`} className={styles.link} >
                 <div className={`${styles.pokemonContainer} ${styles[types[0].name]}`}>
+
                     <h2 >{name}</h2>
+
                     <div className={styles.imgContainer}>
                         {
                             shiny ? (
@@ -31,7 +34,9 @@ const PokemonCard = ({ id, name, image, imageShiny, types }) => {
                             ) 
                         }
                     </div>
+
                     <h2>Pokedex number: #{id}</h2>
+                    
                     <div className={styles.typesContainer}>
                         { types[0] && <span className={styles[types[0].name]} > { types[0].name } </span> }
                         { types[1] && <span className={styles[types[1].name]} > { types[1].name } </span> }

@@ -1,11 +1,16 @@
 
-import { getAllPokemons, orderPokemons, filterPokemons } from '../../redux/actions/actions';
+import { getAllPokemons, orderPokemons, filterPokemons, getAllTypes } from '../../redux/actions/actions';
 
-export const getPokemonsHandler = ({ dispatch }) => {
+export const getDataHandler = ({ dispatch }) => {
     dispatch(getAllPokemons());
+    dispatch(getAllTypes());
 }
 
 export const pagesHandler = ({ page, pokemonsAux, setActualPagePokemons }) => {
+    //* Ej: page = 1: 
+    // min = 0
+    // max = 12
+    //* Siguiente página: min = 12 y max = 24
     const aux = page * 12;
 
     const min = aux - 12;

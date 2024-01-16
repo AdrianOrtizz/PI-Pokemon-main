@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+//* Estilos
+import styles from './SearchBar.module.scss'
 
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+//* Handlers
 import { handleChange, handleSearch, handleKey, handleRedirect, handleRandom } from "./searchBarHandlers";
 
-import styles from './SearchBar.module.scss'
 
 const SearchBar = () => {
 
@@ -38,7 +41,7 @@ const SearchBar = () => {
 
             <input 
                 type="text"
-                placeholder="Search pokemons!"
+                placeholder="Search pokemon!"
                 value={pokemonSerchead}
                 onChange={() => handleChange(event, handlersTools)} 
                 onKeyDown={() => handleKey(event, handlersTools)}

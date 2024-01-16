@@ -1,14 +1,15 @@
+//* Estilos
 import styles from './PokemonsCards.module.scss';
 
+//* Componente de la carta del pokemon
 import PokemonCard from "../PokemonCard/PokemonCard";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
-import { getPokemonsHandler, pagesHandler, handlerOrder, handlerFilter } from './pokemonsCardsHandlers';
-
-import { getAllTypes } from '../../redux/actions/actions';
+//* Handlers
+import { getDataHandler, pagesHandler, handlerOrder, handlerFilter } from './pokemonsCardsHandlers';
 
 const PokemonsCards = () => {
 
@@ -19,6 +20,10 @@ const PokemonsCards = () => {
     const dispatch = useDispatch();
     const page = Number(useParams().page);
 
+    //* handlerTools contiene todas las herramientas que necesitan
+    //* los handlers para ejecutarse. De este objeto la función solo 
+    //* recibe los parámetros que necesita.
+
     const handlerTools = {
         pokemonsAux,
         actualPagePokemons,
@@ -28,11 +33,13 @@ const PokemonsCards = () => {
     }
 
     useEffect(() => {
-        getPokemonsHandler(handlerTools);
-        dispatch(getAllTypes());
+        //* Cuando se renderiza el componente se trae los pokemons para mostrar 
+        //* y los tipos se cargan en la base de datos.
+        getDataHandler(handlerTools);
     }, [])
 
     useEffect(() => {
+        //* Esta función contiene la lógica del páginado
         pagesHandler(handlerTools);
     }, [page, pokemonsAux])
 

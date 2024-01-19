@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 //* Handlers
 import { handleChange, handleSearch, handleKey, handleRedirect, handleRandom } from "./searchBarHandlers";
 
-
 const SearchBar = () => {
 
     const [ pokemonSerchead, setPokemonSerchead ] = useState('');
@@ -25,6 +24,8 @@ const SearchBar = () => {
         navigate
     }
 
+    //* Cada vez que el componente detecta que hay un pokemon en el detail para mostrar, 
+    //* redirecciona al usuario a esa página
     useEffect(() => {
         handleRedirect(handlersTools)
     }, [pokemonDetail])

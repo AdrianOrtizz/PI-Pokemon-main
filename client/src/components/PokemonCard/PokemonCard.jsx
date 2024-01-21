@@ -1,7 +1,5 @@
-//* Estilos
 import styles from './PokemonCard.module.scss';
 
-//* Boton para hacer shiny un pokemon
 import shinyImg from '../../assets/shiny.png';
 
 import { useState } from 'react';

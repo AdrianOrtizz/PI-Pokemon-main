@@ -1,11 +1,9 @@
-//* Estilos
 import styles from './SearchBar.module.scss'
 
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-//* Handlers
 import { handleChange, handleSearch, handleKey, handleRedirect, handleRandom } from "./searchBarHandlers";
 
 const SearchBar = () => {
@@ -24,8 +22,6 @@ const SearchBar = () => {
         navigate
     }
 
-    //* Cada vez que el componente detecta que hay un pokemon en el detail para mostrar, 
-    //* redirecciona al usuario a esa página
     useEffect(() => {
         handleRedirect(handlersTools)
     }, [pokemonDetail])

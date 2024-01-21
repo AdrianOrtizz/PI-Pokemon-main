@@ -1,4 +1,3 @@
-//* Las peticiones se van a hacer con axios
 const axios = require('axios');
 const endpoint = 'https://pokeapi.co/api/v2/pokemon/';
 const { Pokemon, Type } = require('../db.js')
@@ -28,7 +27,6 @@ const searchPokemonController = async (name) => {
         if(poke === null){
             const { data } = await axios(`${endpoint}${name}`);
         
-            // traemos toda la información del pokemon
             poke = {
                 id: data.id,
                 name: data.name,
@@ -45,7 +43,6 @@ const searchPokemonController = async (name) => {
                 types: [data.types[0].type],
             }
 
-            // si el pokemon tiene más de un tipo, se agrega al array
             data.types[1] && poke.types.push(data.types[1].type);
         }
     

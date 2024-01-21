@@ -3,7 +3,6 @@ import PokemonsCards from '../../components/PokemonsCards/PokemonsCards';
 
 const HomePage = () => {
 
-
     return (
         <div>
             <SearchBar/>

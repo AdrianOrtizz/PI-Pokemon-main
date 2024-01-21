@@ -1,10 +1,7 @@
-//* Estilos
 import styles from './Nav.module.scss';
 
-//* Redirección
 import { Link } from "react-router-dom";
 
-//* Logo
 import logoPokemon from '../../assets/logoPokemon.png'
 
 const Nav = () => {

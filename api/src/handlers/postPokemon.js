@@ -1,5 +1,3 @@
-const { Pokemon } = require('../db')
-
 const createPokemonController = require('../controllers/createPokemonController');
 const searchPokemonController = require('../controllers/searchPokemonController');
 
@@ -10,12 +8,6 @@ const postPokemon = async (req, res) => {
         const types = [type1, type2];
 
         type2 === 20 && types.pop();
-        
-        // let pokeExist = await Pokemon.findOne({
-        //     where: {
-        //         name: name
-        //     }
-        // })
 
         const pokeExist = await searchPokemonController(name);
         

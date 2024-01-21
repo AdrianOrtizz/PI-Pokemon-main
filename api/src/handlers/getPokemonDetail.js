@@ -1,8 +1,3 @@
-/* 
-    Esta ruta va a traer la información de un pokemon específico 
-    según su id
-*/
-
 const pokemonDetailController = require('../controllers/pokemonDetailController');
 
 const getPokemonDetail = async (req, res) => {

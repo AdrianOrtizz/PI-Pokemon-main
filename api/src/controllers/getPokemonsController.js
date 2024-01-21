@@ -6,7 +6,7 @@ const endpoint = 'https://pokeapi.co/api/v2/pokemon/';
 const getPokemonsController = async () => {
     try {
         const newPromises = [];
-        for(let i = 1; i <= 48; i++){
+        for(let i = 1; i <= 100; i++){
             newPromises.push(axios(`${endpoint}${i}`));
         }
         let newPokemons = await Promise.all(newPromises);

@@ -36,18 +36,22 @@ const SearchBar = () => {
                 Random Pokemon!
             </span>
 
-            <input 
-                type="text"
-                placeholder="Search pokemon!"
-                value={pokemonSerchead}
-                onChange={() => handleChange(event, handlersTools)} 
-                onKeyDown={() => handleKey(event, handlersTools)}
-                className={styles.input}
-            />
+            <div className={styles.inputContainer}>
+                <input 
+                    type="text"
+                    placeholder="Search pokemon!"
+                    value={pokemonSerchead}
+                    onChange={() => handleChange(event, handlersTools)} 
+                    onKeyDown={() => handleKey(event, handlersTools)}
+                    className={styles.input}
+                />
 
-            <span onClick={() => handleSearch(handlersTools)} className={styles.btn}>
-                🔍
-            </span>
+                <span onClick={() => handleSearch(handlersTools)} className={styles.btn}>
+                    🔍
+                </span>
+
+            </div>
+
         </div>
     )
 }

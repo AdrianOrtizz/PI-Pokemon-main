@@ -66,3 +66,42 @@
         }
     }
 }
+
+@include cmd{
+    .createContainer{
+        width: 60vw;
+    }
+}
+
+@include csm{
+    .createContainer{
+        width: 80vw;
+        
+    }
+}
+
+@include plg{
+    .createContainer{
+        width: 60vw;
+        min-height: 100vh;
+
+        form{
+            display: flex;
+            flex-direction: column;
+
+            .basic{
+                margin: auto;
+            }
+
+            .stats{
+                margin: auto;
+            }
+
+            button{
+                position: relative;
+                align-self: center;
+                margin: 15px 0px 30px 0px;
+            }
+        }
+    }
+}

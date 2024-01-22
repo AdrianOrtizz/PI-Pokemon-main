@@ -42,3 +42,97 @@
         cursor: pointer;
     }
 }
+
+@include csm{
+    .searchBarContainer{
+        position: absolute;
+        top: 110px;
+        left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    
+        .input{
+            width: 200px;
+            height: 25px;
+            border-radius: 10px;
+            border: 0;
+    
+            &::placeholder{
+                font-size: 15px;
+            }
+    
+            &:focus{
+                outline: 0;
+            }
+        }
+    
+        .btn{
+            position: relative;
+            top: 0px;
+            right: 25px;
+            font-size: 13px;
+        }
+    
+        .randomBtn{
+            position: static;
+            text-align: center;
+    
+            font-size: 18px;
+            width: 150px;
+            height: 26px;
+            background-color: white;
+            border-radius: 10px;
+    
+            cursor: pointer;
+        }
+    }
+}
+
+
+@include plg{
+    .searchBarContainer{
+        position: relative;
+        top: 10px;
+        left: 0;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    
+        .input{
+            width: 200px;
+            height: 25px;
+            border-radius: 10px;
+            border: 0;
+    
+            &::placeholder{
+                font-size: 15px;
+            }
+    
+            &:focus{
+                outline: 0;
+            }
+        }
+    
+        .btn{
+            position: relative;
+            top: 3px;
+            right: 25px;
+            font-size: 13px;
+        }
+    
+        .randomBtn{
+            display: inline-block;
+            text-align: center;
+            position: static;
+    
+            font-size: 18px;
+            width: 150px;
+            height: 26px;
+            background-color: white;
+            border-radius: 10px;
+    
+            cursor: pointer;
+        }
+    }
+}

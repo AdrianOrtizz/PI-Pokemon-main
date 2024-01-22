@@ -33,3 +33,11 @@ nav{
         width: 250px;
     }
 }
+
+@include plg{
+    nav{
+        height: 150px;
+        justify-content: center;
+        align-items: flex-end;
+    }
+}

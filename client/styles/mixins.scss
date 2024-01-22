@@ -1,38 +1,20 @@
 // Pantallas de celulares
-$screen-psm: 375px;
 $screen-plg: 720px;
 
-// Pantallas de tablets
-$screen-md: 1024px;
-
 // Pantallas de pc
-$screen-csm: 1366px;
-$screen-cmd: 1439px;
-$screen-clg: 1440px;
+$screen-csm: 1160px;
+$screen-cmd: 1440px;
 
-// Mixin para celulares
-@mixin psm {
-    @media only screen and (max-width: $screen-psm) {
-        @content;
-    }
-}
-
+// Mixin para celulares:
 @mixin plg {
-    @media only screen and (min-width: $screen-psm) and (max-width: $screen-plg) {
-        @content;
-    }
-}
-
-// Mixin para tablets
-@mixin md {
-    @media only screen and (min-width: $screen-plg) and (max-width: $screen-md) {
+    @media only screen and (max-width: $screen-plg){
         @content;
     }
 }
 
 // Mixin para pc
 @mixin csm {
-    @media only screen and (min-width: $screen-md) and (max-width: $screen-csm) {
+    @media only screen and (min-width: $screen-plg) and (max-width: $screen-csm) {
         @content;
     }
 }
@@ -44,7 +26,7 @@ $screen-clg: 1440px;
 }
 
 @mixin clg {
-    @media only screen and (min-width: $screen-clg) {
+    @media only screen and (min-width: $screen-cmd) {
         @content;
     }
 }

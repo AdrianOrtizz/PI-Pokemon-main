@@ -55,10 +55,10 @@
     }
 
     .statsContainer{
-        font-size: 30px;
+        font-size: 25px;
         position: absolute;
         top: 60px;
-        right: 180px;
+        right: 80px;
     }
 
     .characteristicsContainer{
@@ -89,6 +89,52 @@
     }
 }
 
+@include cmd{
+    .detail{
+        width: 80vw;
+    }
+}
+
+@include csm{
+    .detail{
+        height: 125vh;
+
+        .pkmContainer{
+            width: 100%;
+            padding: 0;
+
+            .imgContainer{
+                border: 0;
+            }
+        }
+
+        .statsContainer{
+            position: static;
+            margin-left: 15px;
+        }
+    }
+}
+
+@include plg{
+    .detail{
+        height: 125vh;
+        margin-top: 20px;
+
+        .pkmContainer{
+            width: 100%;
+            padding: 0;
+
+            .imgContainer{
+                border: 0;
+            }
+        }
+
+        .statsContainer{
+            position: static;
+            margin-left: 15px;
+        }
+    }
+}
 
 .normal{
     background-color: #a9a878;

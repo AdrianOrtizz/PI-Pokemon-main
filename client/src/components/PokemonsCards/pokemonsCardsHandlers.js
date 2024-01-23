@@ -1,9 +1,9 @@
 
 import { getAllPokemons, orderPokemons, filterPokemons, getAllTypes } from '../../redux/actions/actions';
 
-export const getDataHandler = ({ dispatch }) => {
-    dispatch(getAllPokemons());
-    dispatch(getAllTypes());
+export const getDataHandler = ({ dispatch, types, pokemonsAux }) => {
+    if(pokemonsAux.length === 0) dispatch(getAllPokemons());
+    if(types.length === 0) dispatch(getAllTypes());
 }
 
 export const pagesHandler = ({ page, pokemonsAux, setActualPagePokemons }) => {

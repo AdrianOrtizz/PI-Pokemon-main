@@ -22,17 +22,18 @@ const PokemonsCards = () => {
         actualPagePokemons,
         setActualPagePokemons,
         dispatch,
-        page
+        page, 
+        types
     }
-
+    
     useEffect(() => {
-       getDataHandler(handlerTools);
+        getDataHandler(handlerTools);
     }, [])
-
+    
     useEffect(() => {
         pagesHandler(handlerTools);
     }, [page, pokemonsAux])
-
+    
     return (
         <section className={styles.container}>
             <div className={styles.filtersContainer}>
@@ -84,9 +85,15 @@ const PokemonsCards = () => {
             </div>
 
             <span className={styles.pages}>
+
+                { page > 1 && <Link to={`/home/${1}`} className={styles.link} > <span>  {' << '}  </span></Link> }
                 { page > 1 && <Link to={`/home/${page - 1}`} className={styles.link} > <span>  {' < '}  </span></Link> }
-                { page } 
+
+                <span> { page } </span>
+
                 { page < pokemonsAux.length / 12 && <Link to={`/home/${page + 1}`} className={styles.link} ><span> {' > '} </span></Link> }
+                { page < pokemonsAux.length / 12 && <Link to={`/home/${Math.ceil(pokemonsAux.length / 12)}`} className={styles.link} ><span> {' >> '} </span></Link> }
+
             </span>
 
         </section>
